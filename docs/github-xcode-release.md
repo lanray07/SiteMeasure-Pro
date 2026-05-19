@@ -10,6 +10,10 @@ Add these in GitHub under Settings > Secrets and variables > Actions > Repositor
 - `APP_STORE_CONNECT_ISSUER_ID`: App Store Connect issuer ID.
 - `APP_STORE_CONNECT_API_KEY_BASE64`: Base64-encoded contents of the `AuthKey_<KEY_ID>.p8` file.
 - `APPLE_TEAM_ID`: Apple Developer Team ID, the 10-character team identifier used for code signing.
+- `IOS_DISTRIBUTION_CERTIFICATE_BASE64`: Base64-encoded Apple Distribution `.p12` certificate.
+- `IOS_DISTRIBUTION_CERTIFICATE_PASSWORD`: Password for the Apple Distribution `.p12` certificate.
+- `IOS_APP_STORE_PROFILE_BASE64`: Base64-encoded App Store provisioning profile for `com.lanray07.sitemeasurepro`.
+- `SIGNING_KEYCHAIN_PASSWORD`: Random password for the temporary CI keychain.
 
 Create the API key in App Store Connect under Users and Access > Integrations > App Store Connect API. Use a role that can manage apps and upload builds.
 
@@ -28,6 +32,8 @@ On Windows PowerShell:
 ```
 
 Paste the copied value into the `APP_STORE_CONNECT_API_KEY_BASE64` secret.
+
+The App Store upload job uses manual signing in CI. The SiteMeasure profile should be an `IOS_APP_STORE` provisioning profile tied to the `com.lanray07.sitemeasurepro` bundle ID and an Apple Distribution certificate whose private key is included in the `.p12`.
 
 ## Running the Workflow
 
