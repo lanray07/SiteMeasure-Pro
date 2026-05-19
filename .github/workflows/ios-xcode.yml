@@ -86,7 +86,7 @@ jobs:
 
   app-store-upload:
     name: Archive and Upload to App Store Connect
-    runs-on: macos-latest
+    runs-on: macos-26
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.upload_to_app_store }}
 
     env:
@@ -103,8 +103,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Show Xcode version
-        run: xcodebuild -version
+      - name: Select Xcode 26
+        run: |
+          set -euo pipefail
+          xcode_path="$(find /Applications -maxdepth 1 -name 'Xcode_26*.app' -print | sort | tail -1)"
+          if [[ -z "$xcode_path" && -d /Applications/Xcode.app ]]; then
+            if /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -version | grep -q '^Xcode 26'; then
+              xcode_path="/Applications/Xcode.app"
+            fi
+          fi
+          if [[ -z "$xcode_path" ]]; then
+            echo "::error::Xcode 26 is required for App Store Connect uploads."
+            find /Applications -maxdepth 1 -name 'Xcode*.app' -print
+            exit 1
+          fi
+          sudo xcode-select -s "$xcode_path/Contents/Developer"
+          xcodebuild -version
 
       - name: Validate signing secrets
         run: |
