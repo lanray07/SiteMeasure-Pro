@@ -119,6 +119,10 @@ jobs:
           fi
           sudo xcode-select -s "$xcode_path/Contents/Developer"
           xcodebuild -version
+          if ! xcodebuild -showsdks | grep -q "iphoneos"; then
+            sudo xcodebuild -downloadPlatform iOS
+          fi
+          xcodebuild -showsdks
 
       - name: Validate signing secrets
         run: |

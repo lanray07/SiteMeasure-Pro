@@ -40,7 +40,7 @@ The App Store upload job uses manual signing in CI. The SiteMeasure profile shou
 The workflow file is `.github/workflows/ios-xcode.yml`.
 
 - Pushes and pull requests run an unsigned iOS Simulator build.
-- Manual runs archive, export, and upload an IPA to App Store Connect on the `macos-26` runner with Xcode 26 selected, which is required for current App Store uploads.
+- Manual runs archive, export, and upload an IPA to App Store Connect on the `macos-26` runner with Xcode 26 selected, which is required for current App Store uploads. If the runner image has Xcode 26 without the iOS platform installed, the workflow downloads the iOS platform before archiving.
 
 To upload a build:
 
