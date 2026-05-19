@@ -478,7 +478,7 @@
 				INFOPLIST_FILE = SiteMeasurePro/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sitemeasure.pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lanray07.sitemeasurepro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -501,7 +501,7 @@
 				INFOPLIST_FILE = SiteMeasurePro/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sitemeasure.pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lanray07.sitemeasurepro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
