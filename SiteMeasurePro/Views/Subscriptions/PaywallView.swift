@@ -96,7 +96,7 @@ struct PaywallView: View {
         .background(.background, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .stroke(subscriptionStore.currentPlan == plan ? .green : .quaternary, lineWidth: 1)
+                .stroke(subscriptionStore.currentPlan == plan ? Color.green : Color.secondary.opacity(0.25), lineWidth: 1)
         )
     }
 
