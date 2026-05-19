@@ -20,6 +20,12 @@ Configure real App Store Connect subscription products before release:
 
 Do not place AI provider API keys in the iOS app. Proxy AI requests through your secure backend.
 
+## GitHub Xcode Builds
+
+Xcode build and App Store upload work should run through GitHub Actions. The workflow at `.github/workflows/ios-xcode.yml` builds the app on pushes and pull requests, and can manually archive/export/upload an IPA to App Store Connect from a macOS runner.
+
+Setup instructions are in `docs/github-xcode-release.md`.
+
 ## Asset Generation
 
 Run the asset generator from the repository root after changing the brand artwork:

@@ -1,0 +1,208 @@
+name: iOS Xcode
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "SiteMeasurePro/**"
+      - "SiteMeasurePro.xcodeproj/**"
+      - ".github/workflows/ios-xcode.yml"
+  pull_request:
+    paths:
+      - "SiteMeasurePro/**"
+      - "SiteMeasurePro.xcodeproj/**"
+      - ".github/workflows/ios-xcode.yml"
+  workflow_dispatch:
+    inputs:
+      upload_to_app_store:
+        description: "Archive, export, and upload to App Store Connect"
+        required: true
+        default: false
+        type: boolean
+      build_number:
+        description: "Optional CFBundleVersion. Defaults to the GitHub run number."
+        required: false
+        type: string
+
+env:
+  PROJECT: SiteMeasurePro.xcodeproj
+  SCHEME: SiteMeasurePro
+  CONFIGURATION: Release
+  BUNDLE_ID: com.lanray07.sitemeasurepro
+
+jobs:
+  simulator-build:
+    name: Unsigned Simulator Build
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Build for iOS Simulator
+        run: |
+          mkdir -p build
+          set -o pipefail
+          xcodebuild build \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination "generic/platform=iOS Simulator" \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            | tee build/simulator-build.log
+
+      - name: Upload simulator build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: simulator-build-log
+          path: build/simulator-build.log
+          if-no-files-found: warn
+          retention-days: 14
+
+  app-store-upload:
+    name: Archive and Upload to App Store Connect
+    runs-on: macos-latest
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.upload_to_app_store }}
+
+    env:
+      ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+      ASC_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Validate signing secrets
+        run: |
+          set -euo pipefail
+          missing=0
+          for name in ASC_KEY_ID ASC_ISSUER_ID ASC_API_KEY_BASE64 APPLE_TEAM_ID; do
+            if [[ -z "${!name}" ]]; then
+              echo "::error::Missing required repository secret for $name"
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      - name: Prepare App Store Connect API key
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.appstoreconnect/private_keys"
+          key_path="$HOME/.appstoreconnect/private_keys/AuthKey_${ASC_KEY_ID}.p8"
+          if ! printf "%s" "$ASC_API_KEY_BASE64" | base64 --decode > "$key_path" 2>/dev/null; then
+            printf "%s" "$ASC_API_KEY_BASE64" | base64 -D > "$key_path"
+          fi
+          chmod 600 "$key_path"
+          echo "ASC_KEY_PATH=$key_path" >> "$GITHUB_ENV"
+
+      - name: Resolve build number
+        run: |
+          set -euo pipefail
+          if [[ -n "${{ inputs.build_number }}" ]]; then
+            echo "BUILD_NUMBER=${{ inputs.build_number }}" >> "$GITHUB_ENV"
+          else
+            echo "BUILD_NUMBER=${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Archive
+        run: |
+          set -euo pipefail
+          set -o pipefail
+          mkdir -p build/logs
+          xcodebuild archive \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -configuration "$CONFIGURATION" \
+            -destination "generic/platform=iOS" \
+            -archivePath "build/SiteMeasurePro.xcarchive" \
+            -derivedDataPath build/DerivedData \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$ASC_KEY_PATH" \
+            -authenticationKeyID "$ASC_KEY_ID" \
+            -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+            DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
+            PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID" \
+            CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
+            | tee build/logs/archive.log
+
+      - name: Create export options
+        run: |
+          set -euo pipefail
+          export_method="app-store"
+          if xcodebuild -help 2>/dev/null | grep -q "app-store-connect"; then
+            export_method="app-store-connect"
+          fi
+          cat > build/ExportOptions.plist <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>destination</key>
+            <string>export</string>
+            <key>method</key>
+            <string>${export_method}</string>
+            <key>signingStyle</key>
+            <string>automatic</string>
+            <key>stripSwiftSymbols</key>
+            <true/>
+            <key>teamID</key>
+            <string>${APPLE_TEAM_ID}</string>
+            <key>uploadSymbols</key>
+            <true/>
+          </dict>
+          </plist>
+          EOF
+          plutil -lint build/ExportOptions.plist
+
+      - name: Export IPA
+        run: |
+          set -euo pipefail
+          set -o pipefail
+          xcodebuild -exportArchive \
+            -archivePath build/SiteMeasurePro.xcarchive \
+            -exportPath build/export \
+            -exportOptionsPlist build/ExportOptions.plist \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$ASC_KEY_PATH" \
+            -authenticationKeyID "$ASC_KEY_ID" \
+            -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+            | tee build/logs/export.log
+          ipa_path="$(find build/export -maxdepth 2 -name '*.ipa' -print -quit)"
+          if [[ -z "$ipa_path" ]]; then
+            echo "::error::No IPA was produced by xcodebuild -exportArchive"
+            exit 1
+          fi
+          echo "IPA_PATH=$ipa_path" >> "$GITHUB_ENV"
+
+      - name: Upload IPA to App Store Connect
+        run: |
+          set -euo pipefail
+          xcrun altool --upload-app \
+            --type ios \
+            --file "$IPA_PATH" \
+            --apiKey "$ASC_KEY_ID" \
+            --apiIssuer "$ASC_ISSUER_ID"
+
+      - name: Upload release artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-store-upload-artifacts
+          path: |
+            build/logs/*.log
+            build/ExportOptions.plist
+            build/export/*.ipa
+          if-no-files-found: warn
+          retention-days: 7
