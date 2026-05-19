@@ -107,10 +107,24 @@ jobs:
         run: |
           set -euo pipefail
           find /Applications -maxdepth 1 -name 'Xcode*.app' -print | sort
-          xcode_path="$(find /Applications -maxdepth 1 -name 'Xcode_26*.app' -print | grep -vi beta | sort | tail -1)"
-          if [[ -z "$xcode_path" ]]; then
-            xcode_path="$(find /Applications -maxdepth 1 -name 'Xcode_26*.app' -print | sort | tail -1)"
-          fi
+          xcode_path=""
+          for candidate in \
+            /Applications/Xcode_26.4.1.app \
+            /Applications/Xcode_26.4.app \
+            /Applications/Xcode_26.3.0.app \
+            /Applications/Xcode_26.3.app \
+            /Applications/Xcode_26.2.0.app \
+            /Applications/Xcode_26.2.app \
+            /Applications/Xcode_26.1.1.app \
+            /Applications/Xcode_26.1.app \
+            /Applications/Xcode_26.0.1.app \
+            /Applications/Xcode_26.0.app
+          do
+            if [[ -d "$candidate" ]]; then
+              xcode_path="$candidate"
+              break
+            fi
+          done
           if [[ -z "$xcode_path" && -d /Applications/Xcode.app ]]; then
             if /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -version | grep -q '^Xcode 26'; then
               xcode_path="/Applications/Xcode.app"
@@ -121,6 +135,7 @@ jobs:
             find /Applications -maxdepth 1 -name 'Xcode*.app' -print
             exit 1
           fi
+          echo "Selected $xcode_path"
           sudo xcode-select -s "$xcode_path/Contents/Developer"
           xcodebuild -version
           if ! xcodebuild -showsdks | grep -q "iphoneos"; then
