@@ -2,6 +2,7 @@ import Foundation
 import CoreGraphics
 import Observation
 import PhotosUI
+import SwiftUI
 import SwiftData
 
 struct MeasurementMarker: Identifiable, Hashable {
