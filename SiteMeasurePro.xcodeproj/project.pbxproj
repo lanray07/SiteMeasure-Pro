@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		300000000000000000000001 /* SiteMeasureProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000001 /* SiteMeasureProApp.swift */; };
+		300000000000000000000002 /* SiteMeasureModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000002 /* SiteMeasureModels.swift */; };
+		300000000000000000000003 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000003 /* AppConstants.swift */; };
+		300000000000000000000004 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000004 /* Formatters.swift */; };
+		300000000000000000000005 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000005 /* AIService.swift */; };
+		300000000000000000000006 /* SubscriptionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000006 /* SubscriptionStore.swift */; };
+		300000000000000000000007 /* PDFProposalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000007 /* PDFProposalService.swift */; };
+		300000000000000000000008 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000008 /* AppState.swift */; };
+		300000000000000000000009 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000009 /* ProjectFormViewModel.swift */; };
+		30000000000000000000000A /* MeasurementWorkflowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000A /* MeasurementWorkflowViewModel.swift */; };
+		30000000000000000000000B /* CalculatorViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000B /* CalculatorViewModels.swift */; };
+		30000000000000000000000C /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000C /* Cards.swift */; };
+		30000000000000000000000D /* FormComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000D /* FormComponents.swift */; };
+		30000000000000000000000E /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000E /* AppRootView.swift */; };
+		30000000000000000000000F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000F /* OnboardingView.swift */; };
+		300000000000000000000010 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000010 /* DashboardView.swift */; };
+		300000000000000000000011 /* ProjectFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000011 /* ProjectFormView.swift */; };
+		300000000000000000000012 /* ProjectsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000012 /* ProjectsListView.swift */; };
+		300000000000000000000013 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000013 /* ProjectDetailView.swift */; };
+		300000000000000000000014 /* MeasurementWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000014 /* MeasurementWorkspaceView.swift */; };
+		30000000000000000000001C /* MeasurementEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000001E /* MeasurementEditView.swift */; };
+		300000000000000000000015 /* MaterialCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000015 /* MaterialCalculatorView.swift */; };
+		300000000000000000000016 /* LaborCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000016 /* LaborCalculatorView.swift */; };
+		300000000000000000000017 /* ProposalGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000017 /* ProposalGeneratorView.swift */; };
+		300000000000000000000018 /* ProposalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000018 /* ProposalListView.swift */; };
+		300000000000000000000019 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000019 /* PaywallView.swift */; };
+		30000000000000000000001A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000001A /* AccountView.swift */; };
+		30000000000000000000001B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000001B /* Assets.xcassets */; };
+		30000000000000000000001D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000001F /* PrivacyInfo.xcprivacy */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		200000000000000000000001 /* SiteMeasureProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteMeasureProApp.swift; sourceTree = "<group>"; };
+		200000000000000000000002 /* SiteMeasureModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteMeasureModels.swift; sourceTree = "<group>"; };
+		200000000000000000000003 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		200000000000000000000004 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		200000000000000000000005 /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
+		200000000000000000000006 /* SubscriptionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStore.swift; sourceTree = "<group>"; };
+		200000000000000000000007 /* PDFProposalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFProposalService.swift; sourceTree = "<group>"; };
+		200000000000000000000008 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		200000000000000000000009 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
+		20000000000000000000000A /* MeasurementWorkflowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementWorkflowViewModel.swift; sourceTree = "<group>"; };
+		20000000000000000000000B /* CalculatorViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModels.swift; sourceTree = "<group>"; };
+		20000000000000000000000C /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		20000000000000000000000D /* FormComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormComponents.swift; sourceTree = "<group>"; };
+		20000000000000000000000E /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		20000000000000000000000F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		200000000000000000000010 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		200000000000000000000011 /* ProjectFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormView.swift; sourceTree = "<group>"; };
+		200000000000000000000012 /* ProjectsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsListView.swift; sourceTree = "<group>"; };
+		200000000000000000000013 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
+		200000000000000000000014 /* MeasurementWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementWorkspaceView.swift; sourceTree = "<group>"; };
+		20000000000000000000001E /* MeasurementEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementEditView.swift; sourceTree = "<group>"; };
+		200000000000000000000015 /* MaterialCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialCalculatorView.swift; sourceTree = "<group>"; };
+		200000000000000000000016 /* LaborCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaborCalculatorView.swift; sourceTree = "<group>"; };
+		200000000000000000000017 /* ProposalGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalGeneratorView.swift; sourceTree = "<group>"; };
+		200000000000000000000018 /* ProposalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalListView.swift; sourceTree = "<group>"; };
+		200000000000000000000019 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		20000000000000000000001A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		20000000000000000000001B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		20000000000000000000001C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20000000000000000000001D /* SiteMeasurePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SiteMeasurePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20000000000000000000001F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		100000000000000000000006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		400000000000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				400000000000000000000001 /* SiteMeasurePro */,
+				400000000000000000000009 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		400000000000000000000001 /* SiteMeasurePro */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000001 /* SiteMeasureProApp.swift */,
+				400000000000000000000002 /* Models */,
+				400000000000000000000003 /* Views */,
+				400000000000000000000004 /* ViewModels */,
+				400000000000000000000005 /* Services */,
+				400000000000000000000006 /* Components */,
+				400000000000000000000007 /* Utilities */,
+				400000000000000000000008 /* Resources */,
+			);
+			path = SiteMeasurePro;
+			sourceTree = "<group>";
+		};
+		400000000000000000000002 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000002 /* SiteMeasureModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		400000000000000000000003 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20000000000000000000000E /* AppRootView.swift */,
+				400000000000000000000010 /* Onboarding */,
+				400000000000000000000011 /* Dashboard */,
+				400000000000000000000012 /* Projects */,
+				400000000000000000000013 /* Measurements */,
+				400000000000000000000014 /* Calculators */,
+				400000000000000000000015 /* Proposals */,
+				400000000000000000000016 /* Subscriptions */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		400000000000000000000004 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000008 /* AppState.swift */,
+				200000000000000000000009 /* ProjectFormViewModel.swift */,
+				20000000000000000000000A /* MeasurementWorkflowViewModel.swift */,
+				20000000000000000000000B /* CalculatorViewModels.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		400000000000000000000005 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000005 /* AIService.swift */,
+				200000000000000000000006 /* SubscriptionStore.swift */,
+				200000000000000000000007 /* PDFProposalService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		400000000000000000000006 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				20000000000000000000000C /* Cards.swift */,
+				20000000000000000000000D /* FormComponents.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		400000000000000000000007 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000003 /* AppConstants.swift */,
+				200000000000000000000004 /* Formatters.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		400000000000000000000008 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				20000000000000000000001C /* Info.plist */,
+				20000000000000000000001F /* PrivacyInfo.xcprivacy */,
+				20000000000000000000001B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		400000000000000000000009 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20000000000000000000001D /* SiteMeasurePro.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		400000000000000000000010 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				20000000000000000000000F /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		400000000000000000000011 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000010 /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		400000000000000000000012 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000011 /* ProjectFormView.swift */,
+				200000000000000000000012 /* ProjectsListView.swift */,
+				200000000000000000000013 /* ProjectDetailView.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		400000000000000000000013 /* Measurements */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000014 /* MeasurementWorkspaceView.swift */,
+				20000000000000000000001E /* MeasurementEditView.swift */,
+			);
+			path = Measurements;
+			sourceTree = "<group>";
+		};
+		400000000000000000000014 /* Calculators */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000015 /* MaterialCalculatorView.swift */,
+				200000000000000000000016 /* LaborCalculatorView.swift */,
+			);
+			path = Calculators;
+			sourceTree = "<group>";
+		};
+		400000000000000000000015 /* Proposals */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000017 /* ProposalGeneratorView.swift */,
+				200000000000000000000018 /* ProposalListView.swift */,
+			);
+			path = Proposals;
+			sourceTree = "<group>";
+		};
+		400000000000000000000016 /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000019 /* PaywallView.swift */,
+				20000000000000000000001A /* AccountView.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		100000000000000000000004 /* SiteMeasurePro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 100000000000000000000009 /* Build configuration list for PBXNativeTarget "SiteMeasurePro" */;
+			buildPhases = (
+				100000000000000000000005 /* Sources */,
+				100000000000000000000006 /* Frameworks */,
+				100000000000000000000007 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SiteMeasurePro;
+			productName = SiteMeasurePro;
+			productReference = 20000000000000000000001D /* SiteMeasurePro.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		100000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					100000000000000000000004 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 100000000000000000000008 /* Build configuration list for PBXProject "SiteMeasurePro" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 400000000000000000000000;
+			productRefGroup = 400000000000000000000009 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				100000000000000000000004 /* SiteMeasurePro */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		100000000000000000000007 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30000000000000000000001B /* Assets.xcassets in Resources */,
+				30000000000000000000001D /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		100000000000000000000005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				300000000000000000000001 /* SiteMeasureProApp.swift in Sources */,
+				300000000000000000000002 /* SiteMeasureModels.swift in Sources */,
+				300000000000000000000003 /* AppConstants.swift in Sources */,
+				300000000000000000000004 /* Formatters.swift in Sources */,
+				300000000000000000000005 /* AIService.swift in Sources */,
+				300000000000000000000006 /* SubscriptionStore.swift in Sources */,
+				300000000000000000000007 /* PDFProposalService.swift in Sources */,
+				300000000000000000000008 /* AppState.swift in Sources */,
+				300000000000000000000009 /* ProjectFormViewModel.swift in Sources */,
+				30000000000000000000000A /* MeasurementWorkflowViewModel.swift in Sources */,
+				30000000000000000000000B /* CalculatorViewModels.swift in Sources */,
+				30000000000000000000000C /* Cards.swift in Sources */,
+				30000000000000000000000D /* FormComponents.swift in Sources */,
+				30000000000000000000000E /* AppRootView.swift in Sources */,
+				30000000000000000000000F /* OnboardingView.swift in Sources */,
+				300000000000000000000010 /* DashboardView.swift in Sources */,
+				300000000000000000000011 /* ProjectFormView.swift in Sources */,
+				300000000000000000000012 /* ProjectsListView.swift in Sources */,
+				300000000000000000000013 /* ProjectDetailView.swift in Sources */,
+				300000000000000000000014 /* MeasurementWorkspaceView.swift in Sources */,
+				30000000000000000000001C /* MeasurementEditView.swift in Sources */,
+				300000000000000000000015 /* MaterialCalculatorView.swift in Sources */,
+				300000000000000000000016 /* LaborCalculatorView.swift in Sources */,
+				300000000000000000000017 /* ProposalGeneratorView.swift in Sources */,
+				300000000000000000000018 /* ProposalListView.swift in Sources */,
+				300000000000000000000019 /* PaywallView.swift in Sources */,
+				30000000000000000000001A /* AccountView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		500000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		500000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		500000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SiteMeasurePro/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sitemeasure.pro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		500000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SiteMeasurePro/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sitemeasure.pro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		100000000000000000000008 /* Build configuration list for PBXProject "SiteMeasurePro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				500000000000000000000001 /* Debug */,
+				500000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		100000000000000000000009 /* Build configuration list for PBXNativeTarget "SiteMeasurePro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				500000000000000000000003 /* Debug */,
+				500000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 100000000000000000000001 /* Project object */;
+}
