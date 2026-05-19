@@ -45,24 +45,55 @@ jobs:
 
       - name: Build for iOS Simulator
         run: |
+          set -euo pipefail
           mkdir -p build
-          set -o pipefail
+          xcodebuild -showdestinations \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            | tee build/destinations.log
+
+          destination="$(awk -F '[{}]' '/platform:iOS Simulator/ && /name:/ { gsub(/^[ \t]+|[ \t]+$/, "", $2); print $2; exit }' build/destinations.log)"
+          if [[ -z "$destination" ]]; then
+            echo "::error::No iOS Simulator destination was available on the GitHub runner."
+            exit 1
+          fi
+
+          echo "Using simulator destination: $destination"
           xcodebuild build \
             -project "$PROJECT" \
             -scheme "$SCHEME" \
             -configuration Debug \
             -sdk iphonesimulator \
-            -destination "generic/platform=iOS Simulator" \
+            -destination "$destination" \
             -derivedDataPath build/DerivedData \
             CODE_SIGNING_ALLOWED=NO \
             | tee build/simulator-build.log
+
+      - name: Annotate simulator build errors
+        if: failure()
+        run: |
+          if [[ -f build/simulator-build.log ]]; then
+            echo "Last 200 lines of simulator build log:"
+            tail -200 build/simulator-build.log
+            grep -E "^[^:]+:[0-9]+:[0-9]+: (error|warning):" build/simulator-build.log | while IFS= read -r item; do
+              file="$(printf "%s" "$item" | cut -d: -f1)"
+              line="$(printf "%s" "$item" | cut -d: -f2)"
+              col="$(printf "%s" "$item" | cut -d: -f3)"
+              level="$(printf "%s" "$item" | cut -d: -f4 | xargs)"
+              message="$(printf "%s" "$item" | cut -d: -f5- | xargs)"
+              echo "::$level file=$file,line=$line,col=$col::$message"
+            done
+          fi
+          exit 0
 
       - name: Upload simulator build log
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: simulator-build-log
-          path: build/simulator-build.log
+          path: |
+            build/destinations.log
+            build/simulator-build.log
           if-no-files-found: warn
           retention-days: 14
 
