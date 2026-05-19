@@ -27,7 +27,8 @@ struct ProjectsListView: View {
                 EmptyStateView(
                     title: "No saved projects",
                     message: "Create a project to start capturing photos and measurements.",
-                    systemImage: "folder.badge.plus"
+                    systemImage: "folder.badge.plus",
+                    assetName: "EmptyProjects"
                 )
                 .listRowInsets(EdgeInsets())
                 .listRowBackground(Color.clear)

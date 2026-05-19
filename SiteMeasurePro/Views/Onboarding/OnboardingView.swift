@@ -9,9 +9,16 @@ struct OnboardingView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 28) {
                     VStack(alignment: .leading, spacing: 12) {
-                        Image(systemName: "ruler.fill")
-                            .font(.system(size: 46))
-                            .foregroundStyle(.green)
+                        Image("OnboardingHero")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 240)
+                            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                                    .stroke(.white.opacity(0.65), lineWidth: 1)
+                            )
                         Text("Welcome to SiteMeasure Pro")
                             .font(.largeTitle.weight(.bold))
                             .fixedSize(horizontal: false, vertical: true)

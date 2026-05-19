@@ -12,7 +12,8 @@ struct ProposalListView: View {
                 EmptyStateView(
                     title: "No saved proposals",
                     message: "Open a project and generate a PDF proposal when your estimate is ready.",
-                    systemImage: "doc.badge.plus"
+                    systemImage: "doc.badge.plus",
+                    assetName: "ProposalPreview"
                 )
                 .listRowInsets(EdgeInsets())
                 .listRowBackground(Color.clear)

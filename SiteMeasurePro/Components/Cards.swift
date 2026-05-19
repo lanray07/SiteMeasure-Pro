@@ -331,12 +331,21 @@ struct EmptyStateView: View {
     let title: String
     let message: String
     let systemImage: String
+    var assetName: String?
 
     var body: some View {
         VStack(spacing: 12) {
-            Image(systemName: systemImage)
-                .font(.system(size: 42))
-                .foregroundStyle(.secondary)
+            if let assetName {
+                Image(assetName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: 150)
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            } else {
+                Image(systemName: systemImage)
+                    .font(.system(size: 42))
+                    .foregroundStyle(.secondary)
+            }
             Text(title)
                 .font(.headline)
             Text(message)

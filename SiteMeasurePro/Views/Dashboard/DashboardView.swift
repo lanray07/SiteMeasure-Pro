@@ -54,7 +54,8 @@ struct DashboardView: View {
                         EmptyStateView(
                             title: "No projects yet",
                             message: "Create your first project to capture photos, estimate measurements, and build a proposal.",
-                            systemImage: "folder.badge.plus"
+                            systemImage: "folder.badge.plus",
+                            assetName: "EmptyProjects"
                         )
                     } else {
                         ForEach(projects.prefix(3)) { project in

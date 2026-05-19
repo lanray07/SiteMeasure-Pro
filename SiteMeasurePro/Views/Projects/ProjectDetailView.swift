@@ -48,7 +48,7 @@ struct ProjectDetailView: View {
 
                 contentSection("Site Photos") {
                     if photos.isEmpty {
-                        EmptyStateView(title: "No photos", message: "Capture or upload site photos from the measurement workflow.", systemImage: "camera")
+                        EmptyStateView(title: "No photos", message: "Capture or upload site photos from the measurement workflow.", systemImage: "camera", assetName: "EmptyMeasurements")
                     } else {
                         ForEach(photos) { photo in
                             SitePhotoCard(photo: photo)
@@ -58,7 +58,7 @@ struct ProjectDetailView: View {
 
                 contentSection("Measurements") {
                     if measurements.isEmpty {
-                        EmptyStateView(title: "No measurements", message: "Mark points on a site photo and run a mock AI estimate.", systemImage: "ruler")
+                        EmptyStateView(title: "No measurements", message: "Mark points on a site photo and run a mock AI estimate.", systemImage: "ruler", assetName: "EmptyMeasurements")
                     } else {
                         ForEach(measurements) { measurement in
                             NavigationLink {
@@ -83,7 +83,7 @@ struct ProjectDetailView: View {
 
                 contentSection("Proposals") {
                     if proposals.isEmpty {
-                        EmptyStateView(title: "No proposals", message: "Generate a client-ready PDF proposal when your estimate is ready.", systemImage: "doc.richtext")
+                        EmptyStateView(title: "No proposals", message: "Generate a client-ready PDF proposal when your estimate is ready.", systemImage: "doc.richtext", assetName: "ProposalPreview")
                     } else {
                         ForEach(proposals) { proposal in
                             ProposalCard(proposal: proposal)
