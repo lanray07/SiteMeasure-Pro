@@ -20,6 +20,8 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>NSCameraUsageDescription</key>
 	<string>SiteMeasure Pro uses the camera so you can capture site photos for measurement estimates.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
