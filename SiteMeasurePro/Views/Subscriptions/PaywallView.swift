@@ -56,9 +56,15 @@ struct PaywallView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(plan.rawValue)
                         .font(.title3.weight(.bold))
-                    Text(productPrice(for: plan) ?? plan.displayPrice)
+                    Text(displayPrice(for: plan))
                         .font(.headline)
                         .foregroundStyle(.green)
+                    Text(subscriptionLength(for: plan))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text(plan.pricePerUnitDescription)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
                 Spacer()
                 if subscriptionStore.currentPlan == plan {
@@ -90,6 +96,8 @@ struct PaywallView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(subscriptionStore.isLoading || subscriptionStore.currentPlan == plan)
+
+                legalLinks
             }
         }
         .padding()
@@ -104,15 +112,26 @@ struct PaywallView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Subscription Notes")
                 .font(.headline)
-            Text("Subscriptions renew automatically until cancelled in the user's App Store account settings. Prices shown here are placeholders until configured in App Store Connect. Digital features are unlocked through StoreKit 2 in-app purchases.")
+            Text("Subscriptions renew automatically until cancelled in the user's App Store account settings. Payment is charged to the Apple ID used for purchase, and renewal can be managed or cancelled in App Store account settings.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
             Text("No external checkout or API keys are embedded in this app.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
+            legalLinks
         }
         .padding()
         .background(.secondary.opacity(0.06), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+    }
+
+    private var legalLinks: some View {
+        HStack(spacing: 8) {
+            Link("Terms of Use (EULA)", destination: AppConstants.Legal.termsOfUseURL)
+            Text("|")
+                .foregroundStyle(.secondary)
+            Link("Privacy Policy", destination: AppConstants.Legal.privacyPolicyURL)
+        }
+        .font(.caption.weight(.semibold))
     }
 
     private func product(for plan: SubscriptionPlan) -> Product? {
@@ -120,7 +139,44 @@ struct PaywallView: View {
         return subscriptionStore.products.first { $0.id == productID }
     }
 
-    private func productPrice(for plan: SubscriptionPlan) -> String? {
-        product(for: plan)?.displayPrice
+    private func displayPrice(for plan: SubscriptionPlan) -> String {
+        guard let product = product(for: plan) else {
+            return plan.pricePerUnitDescription
+        }
+
+        switch plan {
+        case .free:
+            return plan.pricePerUnitDescription
+        case .proMonthly, .businessMonthly:
+            return "\(product.displayPrice) per month"
+        case .proYearly:
+            return "\(product.displayPrice) per year"
+        }
+    }
+
+    private func subscriptionLength(for plan: SubscriptionPlan) -> String {
+        guard let period = product(for: plan)?.subscription?.subscriptionPeriod else {
+            return plan.billingPeriodDescription
+        }
+
+        let unit: String
+        switch period.unit {
+        case .day:
+            unit = period.value == 1 ? "day" : "days"
+        case .week:
+            unit = period.value == 1 ? "week" : "weeks"
+        case .month:
+            unit = period.value == 1 ? "month" : "months"
+        case .year:
+            unit = period.value == 1 ? "year" : "years"
+        @unknown default:
+            unit = "period"
+        }
+
+        if period.value == 1 {
+            return "Auto-renews every \(unit)"
+        }
+
+        return "Auto-renews every \(period.value) \(unit)"
     }
 }

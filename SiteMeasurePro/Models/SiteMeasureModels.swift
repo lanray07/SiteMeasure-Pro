@@ -162,6 +162,30 @@ enum SubscriptionPlan: String, CaseIterable, Identifiable, Codable, Comparable {
         }
     }
 
+    var billingPeriodDescription: String {
+        switch self {
+        case .free:
+            return "No auto-renewing subscription"
+        case .proMonthly, .businessMonthly:
+            return "Auto-renews monthly"
+        case .proYearly:
+            return "Auto-renews yearly"
+        }
+    }
+
+    var pricePerUnitDescription: String {
+        switch self {
+        case .free:
+            return "No billing"
+        case .proMonthly:
+            return "GBP 29.99 per month"
+        case .proYearly:
+            return "GBP 249.99 per year"
+        case .businessMonthly:
+            return "GBP 99.99 per month"
+        }
+    }
+
     var productID: String? {
         switch self {
         case .free:

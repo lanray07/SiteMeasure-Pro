@@ -1,6 +1,11 @@
 import Foundation
 
 enum AppConstants {
+    enum Legal {
+        static let privacyPolicyURL = URL(string: "https://github.com/lanray07/SiteMeasure-Pro/blob/main/docs/privacy-policy.md")!
+        static let termsOfUseURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
+    }
+
     enum StoreKit {
         static let proMonthlyProductID = "sitemeasure.pro.monthly"
         static let proYearlyProductID = "sitemeasure.pro.yearly"

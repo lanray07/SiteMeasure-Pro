@@ -38,6 +38,15 @@ struct AccountView: View {
                 Label("No API keys stored in the app", systemImage: "lock")
             }
 
+            Section("Legal") {
+                Link(destination: AppConstants.Legal.termsOfUseURL) {
+                    Label("Terms of Use (EULA)", systemImage: "doc.text")
+                }
+                Link(destination: AppConstants.Legal.privacyPolicyURL) {
+                    Label("Privacy Policy", systemImage: "hand.raised")
+                }
+            }
+
             Section("Review Disclaimers") {
                 ForEach(AppConstants.disclaimers, id: \.self) { disclaimer in
                     Text(disclaimer)
